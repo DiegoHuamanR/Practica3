@@ -1,0 +1,40 @@
+﻿<%@ Master Language="VB" AutoEventWireup="true" CodeBehind="Site.master.vb" Inherits="Tips.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="es">
+
+<body>
+    
+    <form id="form1" runat="server" enctype="multipart/form-data">
+        <hr />
+        <p>
+            <asp:Button ID="Button1" runat="server" Text="Upload" />
+        </p>
+        <asp:HyperLink ID="HyperLink1" runat="server">HyperLink</asp:HyperLink>
+        <asp:RadioButtonList ID="RadioButtonList1" runat="server" AutoPostBack="True" RepeatDirection="Horizontal">
+            <asp:ListItem Value="0">BulletedList</asp:ListItem>
+            <asp:ListItem Value="1">File Upload</asp:ListItem>
+        </asp:RadioButtonList>
+        <asp:MultiView ID="MultiView1" runat="server">
+            <asp:View ID="View1" runat="server">
+                <asp:BulletedList ID="BulletedList2" runat="server" DataSourceID="XmlDataSource2" DataTextField="text" DataValueField="url" DisplayMode="HyperLink">
+                    <asp:ListItem Value="http://www.microsoft.com">Microsoft</asp:ListItem>
+                </asp:BulletedList>
+                <asp:XmlDataSource ID="XmlDataSource2" runat="server" DataFile="~/hyperlinks.xml"></asp:XmlDataSource>
+                <br />
+            </asp:View>
+            <asp:View ID="View2" runat="server">
+                <asp:FileUpload ID="FileUpload2" runat="server" />
+                <br />
+                <asp:Button ID="Button2" runat="server" Text="Upload" />
+                <br />
+                <asp:HyperLink ID="HyperLink2" runat="server">HyperLink</asp:HyperLink>
+                <br />
+            </asp:View>
+        </asp:MultiView>
+        <br />
+    </form>
+    
+</body>
+</html>
